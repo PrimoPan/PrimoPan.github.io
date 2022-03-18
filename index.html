@@ -21,7 +21,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/tx.png","favicon":"/images/tx.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Primo Pan's Blog"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/tx.png","favicon":"/images/tx.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Primo Pan's Blog"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 5.4.1"><style>mjx-container[jax="SVG"] {
@@ -171,11 +171,35 @@ mjx-container[display="true"] + br {
                     
                 
                     
+                        
+                            <span class="s-icon-item weixin">
+                                <a target="_blank" href="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/3521647575384_.1h5nwqbfk5c0.webp">
+                                    <i class="fab fa-weixin"></i>
+                                </a>
+                            </span>
+                        
+                    
                 
+                    
+                        
+                            <span class="s-icon-item qq">
+                                <a target="_blank" href="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/3531647575465_.7duptsgjlr80.webp">
+                                    <i class="fab fa-qq"></i>
+                                </a>
+                            </span>
+                        
                     
                 
                     
                 
+                    
+                        
+                            <span class="s-icon-item zhihu">
+                                <a target="_blank" href="https://www.zhihu.com/people/PrimoPan">
+                                    <i class="fab fa-zhihu"></i>
+                                </a>
+                            </span>
+                        
                     
                 
                     
@@ -218,6 +242,14 @@ mjx-container[display="true"] + br {
                     
                         <li class="menu-item">
                             <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
                                href="/tags"
                             >
                                 标签
@@ -226,17 +258,25 @@ mjx-container[display="true"] + br {
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/about"
+                               href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B"
                             >
-                                关于我
+                                算法竞赛
                             </a>
                         </li>
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B"
+                               href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF"
                             >
-                                算法竞赛
+                                大前端
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
                             </a>
                         </li>
                     
@@ -262,17 +302,27 @@ mjx-container[display="true"] + br {
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
                        href="/tags">标签</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/about">关于我</a>
+                       href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B">算法竞赛</a>
                 </li>
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B">算法竞赛</a>
+                       href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF">大前端</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
                 </li>
             
         </ul>
@@ -292,6 +342,35 @@ mjx-container[display="true"] + br {
                 
                     <div class="home-content-container fade-in-down-animation">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/03/18/Javascript%E5%9C%A8%E5%AE%BF%E4%B8%BB%E8%BD%AF%E4%BB%B6%E4%B8%AD%E6%BC%94%E5%A5%8F%E8%BD%AF%E4%BB%B6%E4%B9%90%E5%99%A8/">
+                        Javascript在宿主软件中演奏软件乐器
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        JS与Logic Pro X这样的编曲宿主软件实现通信，听起来就是一个很酷的功能，这意味着你编曲时使用的MIDI信号完全可以由代码生成。尤其是有了p5和tf.js之类的前端库，在人机交互时可以将交互时产生的信号映射成MIDI信号生成音乐。
+WebMi...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Mar 18 2022 10:31:08 GMT+0800">2022-03-18</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/03/18/Javascript%E5%9C%A8%E5%AE%BF%E4%B8%BB%E8%BD%AF%E4%BB%B6%E4%B8%AD%E6%BC%94%E5%A5%8F%E8%BD%AF%E4%BB%B6%E4%B9%90%E5%99%A8/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
         
             <li class="home-article-item">
 
