@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Primo Pan">
+    
+    <title>
+        
+            Codeforces19D Points 树套树 |
+        
+        Primo Pan&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/tx.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/tx.png","favicon":"/images/tx.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Primo Pan's Blog"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Primo Pan&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Codeforces19D Points 树套树</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/tx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Primo Pan</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-03-18 09:58:08</span>
+        <span class="mobile">2022-03-18 09:58</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%A0%91%E5%A5%97%E6%A0%91/">树套树</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Codeforces/">Codeforces</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2>Codeforces 19D Points</h2>
+
+<p>Pete and Bob invented a new interesting game. Bob takes a sheet of paper and locates a Cartesian coordinate system on it as follows: point (0, 0) is located in the bottom-left corner, Ox axis is directed right, Oy axis is directed up. Pete gives Bob requests of three types:</p>
+<p>add x y — on the sheet of paper Bob marks a point with coordinates (x, y). For each request of this type it’s guaranteed that point (x, y) is not yet marked on Bob’s sheet at the time of the request.<br>remove x y — on the sheet of paper Bob erases the previously marked point with coordinates (x, y). For each request of this type it’s guaranteed that point (x, y) is already marked on Bob’s sheet at the time of the request.<br>find x y — on the sheet of paper Bob finds all the marked points, lying strictly above and strictly to the right of point (x, y). Among these points Bob chooses the leftmost one, if it is not unique, he chooses the bottommost one, and gives its coordinates to Pete.<br>Bob managed to answer the requests, when they were 10, 100 or 1000, but when their amount grew up to 2·105, Bob failed to cope. Now he needs a program that will answer all Pete’s requests. Help Bob, please!</p>
+<p>Input</p>
+<p>The first input line contains number n (1 ≤ n ≤ 2·105) — amount of requests. Then there follow n lines — descriptions of the requests. add x y describes the request to add a point, remove x y — the request to erase a point, find x y — the request to find the bottom-left point. All the coordinates in the input file are non-negative and don’t exceed 109.</p>
+<p>Output</p>
+<p>For each request of type find x y output in a separate line the answer to it — coordinates of the bottommost among the leftmost marked points, lying strictly above and to the right of point (x, y). If there are no points strictly above and to the right of point (x, y), output -1.</p>
+<p>Example</p>
+<h5>Input</h5>
+7
+add 1 1
+add 3 4
+find 0 0
+remove 1 1
+find 0 0
+add 1 1
+find 0 0
+<h5>Output</h5>
+1 1
+3 4
+1 1
+<h5>Input</h5>
+13
+add 5 5
+add 5 6
+add 5 7
+add 6 5
+add 6 6
+add 6 7
+add 7 5
+add 7 6
+add 7 7
+find 6 6
+remove 7 7
+find 6 6
+find 4 4
+<h5>Output</h5>
+7 7
+-1
+5 5
+
+<h3>题目大意</h3>
+<p style="text-indent:2em">在平面直角坐标系上进行一堆骚操作。Add表示添加(x,y) Remove删除(x,y) Find(x,y)表示查询(x,y)右边的最左边的上面的最下面那个点……</p>
+<h3>题解</h3>
+<p style="text-indent: 2em">
+建一棵线段树，每个叶子节点维护一棵平衡树，平衡树里记录横坐标为x的纵坐标（横坐标较大我们可以先离散化），线段树维护横坐标在这个区间里的纵坐标的最大值，所以查询的时候只要这个线段树结点维护的key小于我们要找到y这个区间里就没有解，在key值符合条件的情况下找横坐标最左边的一个点，找到这个横坐标再在平衡树里找恰好比y大的那个点即可。
+</p>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn (int)2e5+10</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> lson o&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rson o&lt;&lt;1|1</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Opt</span>{</span><br><span class="line">	<span class="type">char</span> s[<span class="number">10</span>];</span><br><span class="line">	<span class="type">int</span> x,y;</span><br><span class="line">}opt[maxn];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">SGT</span>{</span><br><span class="line">	<span class="type">int</span> l,r,key;</span><br><span class="line">}T[maxn&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="type">int</span> n,a[maxn],b[maxn],c[maxn];</span><br><span class="line">set&lt;<span class="type">int</span>&gt; S[maxn];</span><br><span class="line">set&lt;<span class="type">int</span>&gt;::iterator it;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> o,<span class="type">int</span> l,<span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span> (l&gt;r) <span class="keyword">return</span> ;</span><br><span class="line">	T[o].l=l;T[o].r=r;T[o].key=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (l==r)<span class="keyword">return</span> ;</span><br><span class="line">	<span class="type">int</span> mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">build</span>(lson,l,mid);<span class="built_in">build</span>(rson,mid+<span class="number">1</span>,r);</span><br><span class="line">	T[o].key=<span class="built_in">max</span>(T[lson].key,T[rson].key);</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> o,<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="type">int</span> mid=(T[o].l+T[o].r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (T[o].l==T[o].r &amp;&amp; T[o].l==x)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span> (S[T[o].l].<span class="built_in">size</span>())</span><br><span class="line">		{</span><br><span class="line">			it=(--S[T[o].l].<span class="built_in">end</span>());</span><br><span class="line">			T[o].key=*it;</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">else</span> T[o].key=<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">if</span> (mid&gt;=x) <span class="built_in">update</span>(lson,x);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">update</span>(rson,x);</span><br><span class="line">	T[o].key=<span class="built_in">max</span>(T[lson].key,T[rson].key);</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> o,<span class="type">int</span> x,<span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">if</span> (T[o].r&lt;=x) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (T[o].key&lt;=y) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (T[o].l==T[o].r) <span class="keyword">return</span> T[o].r;</span><br><span class="line">	<span class="type">int</span> t=<span class="built_in">query</span>(lson,x,y);</span><br><span class="line">	<span class="keyword">if</span> (t==<span class="number">-1</span>) <span class="keyword">return</span> <span class="built_in">query</span>(rson,x,y);</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">}</span><br><span class="line"><span class="type">int</span> cnt=<span class="number">0</span>,ct2;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s%d%d"</span>,opt[i].s,&amp;opt[i].x,&amp;opt[i].y);</span><br><span class="line">		a[i]=opt[i].x;</span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">sort</span>(a+<span class="number">1</span>,a+<span class="number">1</span>+n);</span><br><span class="line">	<span class="type">int</span> t=<span class="built_in">unique</span>(a+<span class="number">1</span>,a+<span class="number">1</span>+n)-a<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) b[i]=<span class="built_in">lower_bound</span>(a+<span class="number">1</span>,a+<span class="number">1</span>+t,opt[i].x)-a;</span><br><span class="line">	<span class="built_in">build</span>(<span class="number">1</span>,<span class="number">1</span>,maxn);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">if</span> (opt[i].s[<span class="number">0</span>]==<span class="string">'a'</span>)</span><br><span class="line">		{</span><br><span class="line">			S[b[i]].<span class="built_in">insert</span>(opt[i].y);</span><br><span class="line">			<span class="built_in">update</span>(<span class="number">1</span>,b[i]);</span><br><span class="line">		}<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">if</span> (opt[i].s[<span class="number">0</span>]==<span class="string">'r'</span>)</span><br><span class="line">		{</span><br><span class="line">			S[b[i]].<span class="built_in">erase</span>(opt[i].y);</span><br><span class="line">			<span class="built_in">update</span>(<span class="number">1</span>,b[i]);</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">else</span>{</span><br><span class="line">			<span class="type">int</span> ans=<span class="built_in">query</span>(<span class="number">1</span>,b[i],opt[i].y);</span><br><span class="line">			<span class="keyword">if</span> (ans==<span class="number">-1</span>) cout&lt;&lt;<span class="number">-1</span>&lt;&lt;endl;</span><br><span class="line">			<span class="keyword">else</span>{</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,a[ans],*S[ans].<span class="built_in">upper_bound</span>(opt[i].y));</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">#线段树</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%A0%91%E5%A5%97%E6%A0%91/">#树套树</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Codeforces/">#Codeforces</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/03/18/hello-world/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">hello-world</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Primo Pan</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
