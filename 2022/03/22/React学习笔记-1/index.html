@@ -371,6 +371,20 @@ mjx-container[display="true"] + br {
             <h4>
     待填坑
 </h4>
+<h5>
+    22.2.28 updated
+</h5>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">constructor</span>(<span class="params"></span>){</span><br><span class="line">...</span><br><span class="line">}<span class="comment">//里免写setState，出了warning</span></span><br><span class="line"><span class="comment">//直接在组建里</span></span><br><span class="line">state={</span><br><span class="line">     <span class="attr">items</span>:balabalabala</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h6>
+    prop-types
+</h6>
+<p style="text-indent:2em">
+    用于限定props的数据类型
+</p>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">PropTypes</span> <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Greeting</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> {</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, {this.props.name}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="title class_">Greeting</span>.<span class="property">propTypes</span> = {</span><br><span class="line">  <span class="attr">name</span>: <span class="title class_">PropTypes</span>.<span class="property">string</span></span><br><span class="line">};</span><br></pre></td></tr></table></figure>
         </div>
 
         
