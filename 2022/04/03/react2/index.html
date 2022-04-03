@@ -9,7 +9,7 @@
     
     <title>
         
-            分类: 算法竞赛 |
+            React学习笔记(2) Hooks |
         
         Primo Pan&#39;s Blog
     </title>
@@ -181,7 +181,7 @@ mjx-container[display="true"] + br {
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/categories"
                             >
                                 分类
@@ -205,7 +205,7 @@ mjx-container[display="true"] + br {
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B"
                             >
                                 算法竞赛
@@ -255,7 +255,7 @@ mjx-container[display="true"] + br {
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/categories">分类</a>
                 </li>
             
@@ -270,7 +270,7 @@ mjx-container[display="true"] + br {
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B">算法竞赛</a>
                 </li>
             
@@ -300,63 +300,140 @@ mjx-container[display="true"] + br {
 
                 
                     <div class="fade-in-down-animation">
-    <div class="category-container">
-        <div class="category-name">
-            <i class="fas fa-folder"></i>&nbsp;算法竞赛
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">React学习笔记(2) Hooks</span>
         </div>
-        <div class="category-post-list">
-            
-<div class="archive-list-container">
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/tx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Primo Pan</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-03 22:38:47</span>
+        <span class="mobile">2022-04-03 22:38</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2022</span>
-                <span class="archive-year-post-count">[4]</span>
-            </div>
-            <ul class="article-list">
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
                 
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/03/gcj22ET4/"
-                        >Google Code Jam 2022-QR-T4-Chain Reactions</a>
-                        <span class="article-date">04-03</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/03/22/22-3-puzzle/"
-                        >浙工大校赛-puzzle-Hash</a>
-                        <span class="article-date">03-22</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/03/19/cf24d/"
-                        >codeforces 24D Broken Robot[有后效性DP,高斯消元]</a>
-                        <span class="article-date">03-19</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/03/18/cf19d/"
-                        >Codeforces19D Points 树套树</a>
-                        <span class="article-date">03-18</span>
+                    <li>
+                        <a href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>&nbsp;
                     </li>
                 
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Javascript/">Javascript</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/React/">React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
     
 </div>
 
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2>
+    22.4.3 updated
+</h2>
+<h3>
+    关于hooks
+</h3>
+<p style="text-indent:2em">
+    React16.8的版本更新了Hooks功能。意味着函数式组件也可以拥有state属性。自此，类式组件基本完全可以被函数式组件替代。（除非要利用生命周期进行一些骚操作）。这也让利用React进行的开发更贴近"函数式编程"的潮流。
+</p>
+
+<h3>
+  useState
+</h3>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">const</span> [value,setValue]= <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">{()</span>=&gt;</span>{</span></span><br><span class="line"><span class="language-xml">           setValue(value+1)</span></span><br><span class="line"><span class="language-xml">         }}&gt;click to add 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">           value={value}</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">}</span><br><span class="line"><span class="comment">//注意到如上代码使用了useState</span></span><br><span class="line"><span class="comment">//[]中两个参数</span></span><br><span class="line"><span class="comment">//第一个相当于class中state中的一个属性（变量），而第二个参数是一个方法（函数），用以改变这个属性的值。</span></span><br><span class="line"><span class="comment">//useState()括号中为该属性的初始值</span></span><br><span class="line"><span class="comment">//当我们需要改变value的值时，在class中</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="title function_">setState</span>({<span class="attr">value</span>:<span class="variable language_">this</span>.<span class="property">state</span>.<span class="property">value</span>+<span class="number">1</span>})</span><br><span class="line"></span><br><span class="line"><span class="comment">//而在hooks中直接</span></span><br><span class="line"><span class="title function_">setValue</span>(value+<span class="number">1</span>)</span><br><span class="line"><span class="comment">//不要太方便，且省去了各种this来this去</span></span><br></pre></td></tr></table></figure>
+
+<p style="text-indent:2em">
+  不过来点面试题会发现其实看上去简单的东西也会有很多反直觉的坑。师哥给我丢了一道。
+</p>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) {</span><br><span class="line">    <span class="keyword">const</span> [n, setN] = <span class="title function_">useState</span>(<span class="number">0</span>);</span><br><span class="line">     <span class="keyword">return</span> (</span><br><span class="line">          <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>{n}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">{()</span> =&gt;</span> setN(x =&gt; x + 1)}&gt;+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">{()</span> =&gt;</span> setTimeout(() =&gt; console.log(n), 3000)}&gt;log<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">        )</span><br><span class="line">}</span><br><span class="line"><span class="comment">//先点log，然后立即点+1,3s后会打印出啥</span></span><br><span class="line"><span class="comment">//答案是0</span></span><br><span class="line"><span class="comment">//因为函数式组件在+1后进行了刷新，相当于重新执行了一下这个函数，并且创建了一个新的n</span></span><br><span class="line"><span class="comment">//但是console.log中的n是通过闭包捕获的，函数第一次执行时的n,所以无论函数再怎么被翻江倒海</span></span><br><span class="line"><span class="comment">//打印出的值始终是第一次的n</span></span><br></pre></td></tr></table></figure>
         </div>
-    </div>
-    <div class="category-paginator">
-        <div class="paginator">
-    
 
-    
-</div>
+        
 
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Javascript/">#Javascript</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/">#大前端</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/React/">#React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/03/gcj22ET4/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Google Code Jam 2022-QR-T4-Chain Reactions</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
     </div>
 </div>
 
@@ -389,6 +466,19 @@ mjx-container[display="true"] + br {
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
