@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Primo Pan">
+    
+    <title>
+        
+            Pose-Detection-in-Web |
+        
+        Primo Pan&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/tx.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/tx.png","favicon":"/images/tx.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Primo Pan's Blog"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Primo Pan&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B"
+                            >
+                                算法竞赛
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF"
+                            >
+                                大前端
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B">算法竞赛</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF">大前端</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Pose-Detection-in-Web</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/tx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Primo Pan</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-18 19:37:05</span>
+        <span class="mobile">2022-05-18 19:37</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Javascript/">Javascript</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Machine-Learning/">Machine-Learning</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%8A%A8%E4%BD%9C%E6%8D%95%E6%8D%89/">动作捕捉</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Pose-Detection-Demos-in-Web"><a href="#Pose-Detection-Demos-in-Web" class="headerlink" title="Pose-Detection Demos in Web"></a>Pose-Detection Demos in Web</h1><p><strong>Author : Primo</strong></p>
+<p>This package involves some demos I collected that using state-of-the-art models for running real-time pose detection<br>in your browser.</p>
+<p><em>Hint: Since most of models in the package are trained by Google,make sure that you are able to bypass the GFW.</em></p>
+<p>Before we start, let’s give a brief introduction to the principle of pose-detection technology in web browsers.<br><br></p>
+<p>Above all, every ingenious effect achievement in this package is realized by machine learning.In brief, machine learning is a method that you make the computer understand something by teaching it something.You tell the computer that ‘A’ is ‘A’ and “B” isn’t ‘A’ many many many times by delivering countless data to the computer,and we call it ‘Dataset’.Then the computer will learn the <em>Dataset</em> via some algorithms.After the learning process, if you give the computer some information,it will classify them.And then it can tell you “A” is  “A’ with a great probability.</p>
+<div align="center">
+<img src="/.com//001.pic.jpg">
+</div>
+
+<p>These days, we have many platforms to  create machine learning models.<strong>Tensorflow(Google)</strong> and <strong>Pytorch(Facebook/Meta)</strong> are popular ones among them.Both of them require <strong>Python</strong> skills to create and apply models.To <strong>Digital Art Designers/Game Developers/Software Engineers(especially Front-End Engineers)</strong> who do not have enough mathematic and Python-Programming skills,nevertheless,those platforms have steep learning curve.</p>
+<p>To make machine-learning skills easier for developers,Google released a Javascript library <strong>Tensorflow.js</strong>.It makes it possible for us to create machine learning models in Javascript or in another word,in Web.Meanwhile,Node.JS is also available.Since web is so convenient that we can use it on almost every console.And we can ‘Code once,run everywhere’.</p>
+<p>To simplify the process further,we got <strong>ML5.JS</strong>.It is derived from tensorflow.js and relies heavily on <strong>P5.JS</strong> which is another JS library (processing in the web).So you can consider that both ML5.JS and P5.JS are designed for we digital-art students or someone(newbie) who is interested in the application of AI.</p>
+<h3 id="01-Posenet-in-P5-js"><a href="#01-Posenet-in-P5-js" class="headerlink" title="01-Posenet in P5.js"></a>01-Posenet in P5.js</h3><p>Tensorflow.js provides 3 kinds of pose-detection models:<strong>MoveNet, Blazepose and Posenet</strong>.They’re trained by different research teams in Google.<br>In ML5.js, we use the <strong>Posenet</strong> model.</p>
+<p><strong>Posenet</strong> is trained by the dataset <a class="link" target="_blank" rel="noopener" href="https://paperswithcode.com/dataset/coco">“COCO”<i class="fas fa-external-link-alt"></i></a>((Microsoft Common Objects in Context)).It is a large-scale object detection, segmentation, key-point detection, and captioning dataset. The dataset consists of 328K images.</p>
+<p>As a result ,in <strong>Posenet</strong> ,we got a keypoint diagram called <em>COCO Keypoints</em>,and so does it in <strong>Movenet</strong>.</p>
+<div align="center">
+    <img src="/.com//002.png">
+</div>
+
+<p>The data will be reserved in an array, and their index are:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span><span class="punctuation">:</span> nose</span><br><span class="line"><span class="number">1</span><span class="punctuation">:</span> left_eye</span><br><span class="line"><span class="number">2</span><span class="punctuation">:</span> right_eye</span><br><span class="line"><span class="number">3</span><span class="punctuation">:</span> left_ear</span><br><span class="line"><span class="number">4</span><span class="punctuation">:</span> right_ear</span><br><span class="line"><span class="number">5</span><span class="punctuation">:</span> left_shoulder</span><br><span class="line"><span class="number">6</span><span class="punctuation">:</span> right_shoulder</span><br><span class="line"><span class="number">7</span><span class="punctuation">:</span> left_elbow</span><br><span class="line"><span class="number">8</span><span class="punctuation">:</span> right_elbow</span><br><span class="line"><span class="number">9</span><span class="punctuation">:</span> left_wrist</span><br><span class="line"><span class="number">10</span><span class="punctuation">:</span> right_wrist</span><br><span class="line"><span class="number">11</span><span class="punctuation">:</span> left_hip</span><br><span class="line"><span class="number">12</span><span class="punctuation">:</span> right_hip</span><br><span class="line"><span class="number">13</span><span class="punctuation">:</span> left_knee</span><br><span class="line"><span class="number">14</span><span class="punctuation">:</span> right_knee</span><br><span class="line"><span class="number">15</span><span class="punctuation">:</span> left_ankle</span><br><span class="line"><span class="number">16</span><span class="punctuation">:</span> right_ankle</span><br></pre></td></tr></table></figure>
+
+<p>In ML5.JS,once we detect a “pose” from the image or video, we got an object.First, it has a score stands for the confidence score.Then we got an array called “keypoints”.<br>The 17 points are reserved in the order above in this array,and every point has a score,’part’ and a position coordinate.For the coordinate,x and y represent the <strong>actual keypoint position</strong> in the image,which is different from that in <strong>Blazepose</strong>.Besides the array,each part is stored in the object,so if you want to know the x index of “nose”,just use <strong>let x=pose.nose.x</strong>.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.36062840477782576</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"keypoints"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.9998100399971008</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"nose"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">304.9208122283104</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">309.5389037373465</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.9993601441383362</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"leftEye"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">350.35096105434553</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">267.1330611529517</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.9985820055007935</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"rightEye"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">278.3887003367977</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">259.3134281143604</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.8186571002006531</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"leftEar"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">397.34817979864573</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">290.57919038408926</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.4284822642803192</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"rightEar"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">235.44428754873314</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">282.58995798311344</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.8433191776275635</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"leftShoulder"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">471.59480588445405</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">496.9624085185129</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.9728891253471375</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"rightShoulder"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">154.78833803406948</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">479.0577168594539</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.0226301196962595</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"leftElbow"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">529.4033742229299</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">585.576703854572</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.017581390216946602</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"rightElbow"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">34.78550595532132</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">580.9919186603234</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.0062744165770709515</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"leftWrist"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">512.406827577821</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">553.6286341448239</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.002704796614125371</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"rightWrist"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">76.06921570774182</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">557.3660603293185</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.00424220459535718</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"leftHip"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">398.1407143077034</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">564.717056927514</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.00541426008567214</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"rightHip"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">240.92917965543873</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">555.8058724607475</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.0022254108916968107</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"leftKnee"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">400.528016146055</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">551.4891182866078</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.0033826844301074743</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"rightKnee"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">184.80833773483099</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">543.0382065828672</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.002814995124936104</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"leftAnkle"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">386.2246680352475</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">550.1599762319127</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">{</span></span><br><span class="line">            <span class="attr">"score"</span><span class="punctuation">:</span> <span class="number">0.002312745898962021</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"part"</span><span class="punctuation">:</span> <span class="string">"rightAnkle"</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">"position"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">                <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">152.1527099609375</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">543.721379974009</span></span><br><span class="line">            <span class="punctuation">}</span></span><br><span class="line">        <span class="punctuation">}</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"nose"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">304.9208122283104</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">309.5389037373465</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.9998100399971008</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"leftEye"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">350.35096105434553</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">267.1330611529517</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.9993601441383362</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"rightEye"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">278.3887003367977</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">259.3134281143604</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.9985820055007935</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"leftEar"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">397.34817979864573</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">290.57919038408926</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.8186571002006531</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"rightEar"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">235.44428754873314</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">282.58995798311344</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.4284822642803192</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"leftShoulder"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">471.59480588445405</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">496.9624085185129</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.8433191776275635</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"rightShoulder"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">154.78833803406948</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">479.0577168594539</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.9728891253471375</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"leftElbow"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">529.4033742229299</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">585.576703854572</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.0226301196962595</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"rightElbow"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">34.78550595532132</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">580.9919186603234</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.017581390216946602</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"leftWrist"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">512.406827577821</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">553.6286341448239</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.0062744165770709515</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"rightWrist"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">76.06921570774182</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">557.3660603293185</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.002704796614125371</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"leftHip"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">398.1407143077034</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">564.717056927514</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.00424220459535718</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"rightHip"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">240.92917965543873</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">555.8058724607475</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.00541426008567214</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"leftKnee"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">400.528016146055</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">551.4891182866078</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.0022254108916968107</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"rightKnee"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">184.80833773483099</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">543.0382065828672</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.0033826844301074743</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"leftAnkle"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">386.2246680352475</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">550.1599762319127</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.002814995124936104</span></span><br><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"rightAnkle"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">        <span class="attr">"x"</span><span class="punctuation">:</span> <span class="number">152.1527099609375</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"y"</span><span class="punctuation">:</span> <span class="number">543.721379974009</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">"confidence"</span><span class="punctuation">:</span> <span class="number">0.002312745898962021</span></span><br><span class="line">    <span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="02-Handpose-in-P5-js"><a href="#02-Handpose-in-P5-js" class="headerlink" title="02-Handpose in P5.js"></a>02-Handpose in P5.js</h3><div align="center">
+    <img src="/.com//003.jpg">
+</div>
+Handpose is a machine-learning model that allows for palm detection and hand-skeleton finger tracking in the browser. It can detect a maximum of one hand at a time and provides 21 3D hand keypoints that describe important locations on the palm and fingers.
+<div align="center">
+    <img src="/.com//hand.pic.jpg">
+</div>
+
+<p>Just like  <strong>Posenet</strong> ,we will get an object from the server after detecting the hand.<br>Firstly,the model has an array which stores the coordinate of 21 keypoints of hand above in order.<br>Pay attention that every coordinate has three values [x,y,z]. [x,y] stands for the location of the point in the 2-D plane, and z is the number of z-index means you can use it in the 3-D space.</p>
+<p>Besides the array we have an object in the object called ‘annotations’.It stores every finger’s information.<br>So if you want query the information of ‘thumb’,<strong>let thumb=object.annotations.thumb</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"thumb"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">311.1474129357343</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">392.8839134580602</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">31.628944396972656</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">305.308736143059</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">365.20717624808134</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">40.958133697509766</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">296.55928350326406</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">344.6487949195921</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">42.178436279296875</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">289.09028835985714</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">321.9771320066599</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">41.17280578613281</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"indexFinger"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">351.26226986601506</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">315.317770126479</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">33.45431900024414</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">317.7573958881063</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">287.82946656887157</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">41.258514404296875</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">301.0551201111043</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">279.13742066547405</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">45.38811111450195</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">295.82737357654224</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">276.7010123385984</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">46.33940887451172</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"middleFinger"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">353.7122101313199</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">309.04347842173087</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">16.16316032409668</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">294.2536349253059</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">291.90549768414684</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">24.071781158447266</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">277.4029452280277</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">312.1420227467726</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">23.412212371826172</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">282.40719597599997</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">328.68568506297936</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">20.75050163269043</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"ringFinger"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">343.6278986695346</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">307.76669737200876</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">1.2318196296691895</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">281.3661445784785</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">301.97755074942916</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">9.658766746520996</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">269.26558032780065</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">333.03373573840565</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">8.836081504821777</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">278.37322912437753</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">350.7239374751061</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">4.151844024658203</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"pinky"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">327.2987480246994</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">307.3400266338206</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">-11.768608093261719</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">281.79613233056017</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">306.4856480945225</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">-2.7679641246795654</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">274.7228580919318</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">333.18432280186977</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">-1.2925504446029663</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">287.3491935974832</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">347.7520597512496</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">-4.416280746459961</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">"palmBase"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">            <span class="number">333.42525789734873</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">414.1195342209028</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">-0.0014080926775932312</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="03-Handpose-Posenet-in-P5-js"><a href="#03-Handpose-Posenet-in-P5-js" class="headerlink" title="03-Handpose+Posenet in P5.js"></a>03-Handpose+Posenet in P5.js</h3><div align="center">
+<img src="/.com//conb.jpg">
+</div>
+
+<p>Now we can combine the two models together.So we can get both pose data and one hand’s data.<br>With this data, we can make some simple classifications.<br>The demo written by me can recognize which hand is detecting,by comparing the <strong>distance of palm(Handpose) and Wrist(Posenet)</strong>.</p>
+<p>And, we can make use of the coordinate of every finger to judge if it is bent.If it is bent,the circle of this finger in the image will turn red.<br>We are able to recognize some gestures like ‘1,2,3,4,5,6’ via counting which finger is bent,without machine learning algorithms.</p>
+<h3 id="04-train-own-model"><a href="#04-train-own-model" class="headerlink" title="04-train_own_model"></a>04-train_own_model</h3><p>Despite computing coordinates by their positional relationship,you can also use machine learning skills to classify a gesture.</p>
+<p>In ml5.js,it’s not very difficult for us to train our own models.</p>
+<p>I’ve written a demo in <a src="./04-train-own_model">04-train-own_model</a>.</p>
+<p>The model can train 4 different gestures.If you want to train more models,find all the ‘options’ in all javascript documents and change the ‘output’ number to whatever you want.</p>
+<p>First,open the ‘collect’ document.Press any button on your keyboard except ‘s’.And then you will see the ‘waiting’ on the screen turns to ‘ready’.You need to get ready to show your gestures in front your webcams.Then ‘ready’ will turn to ‘collecting’.<br>The program starts to collect your body’s data.</p>
+<p>Then the word will trun to ‘waiting’ again,you are able to press another key.After you’ve pressed 4 keys (or the number you want),press ‘S’ and you will get a JSON document that stores the data.</p>
+<p>Rename the JSON file and drag it to the file ‘train’.</p>
+<p>Change your root to ‘train’ , open the ‘index.js’.In line 12,change the json file’s name to what you’ve just renamed it.And then run the HTML file.The model will be training.</p>
+<div align="center">
+<img src="/.com//005.png">
+</div>
+
+<p>Wait a minute,and you will get three files.</p>
+<p>Change your root to “classify” folder.And put those files in the folder “model”.</p>
+<p>Run the HTML file, and make some poses.The computer is able to classify the pose by models your trained!</p>
+<h3 id="05-Blazepose-P5-js"><a href="#05-Blazepose-P5-js" class="headerlink" title="05-Blazepose_P5.js"></a>05-Blazepose_P5.js</h3><p>Blazepose is another model released by a Google research team <em>Mediapipe</em>.You can use it in both tensorflow.js or mediapipe environment.</p>
+<p>Blazepose is the <em>Superset</em> of COCO,BlazeFace and BlazePalm.<br>MediaPipe BlazePose can detect 33 keypoints, in addition to the 17 COCO keypoints, it provides additional keypoints for face, hands and feet.</p>
+<div align="center">
+<img src="/.com//06.png">
+</div>
+
+<p>Each of the object of the 33-long array contains four variables.<br><strong>[x,y,z]</strong> stands for real-world 3D coordinates in meters with the origin at the center between hips.Unlike Posenet’s Data,the coordinate numbers<br>in Blazepose have been normalized.So it’s always between [0,1].<br>Once you want to transfer it on your screen,you have to multiply it to the height and width of the canvas.And another variables which name ‘visibility’<br>stands for the confidence score.</p>
+<p>Tough Blazepose can detect only one person,it’s much more steady than Posenet from my point of view.</p>
+<h3 id="06-Blazepose"><a href="#06-Blazepose" class="headerlink" title="06-Blazepose"></a>06-Blazepose</h3><p>This is a demo show how it works in the 3-D space.It uses HTML5-Canvas without P5.js.You can attach it to more complicated frameworks like Three.js and Babylon.js</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Javascript/">#Javascript</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/">#大前端</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Machine-Learning/">#Machine-Learning</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%8A%A8%E4%BD%9C%E6%8D%95%E6%8D%89/">#动作捕捉</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/18/CUC-Spring-Traning-Contest%E9%A2%98%E8%A7%A3/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">CUC-Spring-Traning-Contest题解</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Primo Pan</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
