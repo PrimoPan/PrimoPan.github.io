@@ -353,7 +353,61 @@ mjx-container[display="true"] + br {
         
 
         <div class="article-content markdown-body">
-            
+            <h3>
+    Intro
+</h3>
+<p style="text-indent: 2em">
+    早就听说M卡自带的GPU跑机器学习模型也还是可以的，但是一直没试，今天折腾了一下；发现时至2023年，Tensorflow和Pytorch都已经通过安装Metal插件来使用M系列芯片的GPU加强运算速度了。因为最近做的项目还是用的TF，先折腾了一下TF端的优化。效果还是挺感人的。
+</p>
+
+<h3>
+    Preparation
+</h3>
+
+<p style="text-indent: 2em">
+    因为针对M卡优化的那个环境用的是MiniForge,平常用的Anaconda，得先把conda环境切到MiniForge。
+</p>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda <span class="built_in">env</span> list</span></span><br></pre></td></tr></table></figure>
+
+<p style="text-indent: 2em">
+    先看一下自己conda的环境，如果现在是Anaconda，需要切到MiniForge，上面那段我本地打出来是这样
+</p>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">conda environments:</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">                         /Users/primopan/anaconda3</span></span><br><span class="line">base                  *  /Users/primopan/miniforge3</span><br><span class="line">tfm1                     /Users/primopan/miniforge3/envs/tfm1</span><br></pre></td></tr></table></figure>
+
+<p style="text-indent: 2em">
+    如果想swift一下Anaconda和MiniForge，假设现在咱们在Anaconda环境下，你需要复制一下上面MiniForge的地址，然后
+</p>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">/Users/primopan/miniforge3/conda init zsh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">/Users/primopan/miniforge3/conda init bash</span></span><br></pre></td></tr></table></figure>
+
+<p style="text-indent: 2em">
+    Terminal会显示no change，但是没关系，关掉终端再开一下，检查环境，就已经切换过来了。然后我们开一下环境。
+</p>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda create --name tfm1 python==3.9</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda activate tfm1</span></span><br></pre></td></tr></table></figure>
+<p style="text-indent: 2em">
+    接着安装预制环境和tf的macos和metal插件
+</p>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">conda install -c apple tensorflow-deps</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install tensorflow-macos</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install tensorflow-metal</span></span><br></pre></td></tr></table></figure>
+
+<p style="text-indent: 2em">
+    理论上装完了就可以了。我们terminal 开个Python 试一试能不能调用GPU
+</p>
+
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; import tensorflow as tf</span></span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; tf.__version__</span></span><br><span class="line">'2.12.0'</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; tf.config.list_physical_devices()</span></span><br><span class="line">[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU'), PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]</span><br></pre></td></tr></table></figure>
+
+<p style="text-indent: 2em">
+    可以看到输出的那一坨设备里面有GPU的话就说明可以调用GPU了，废话不多说，开一个最简单的图像分类训练模型试一下。
+</p>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">cifar = tf.keras.datasets.cifar100</span><br><span class="line">(x_train, y_train), (x_test, y_test) = cifar.load_data()</span><br><span class="line">model = tf.keras.applications.ResNet50(</span><br><span class="line">    include_top=<span class="literal">True</span>,</span><br><span class="line">    weights=<span class="literal">None</span>,</span><br><span class="line">    input_shape=(<span class="number">32</span>, <span class="number">32</span>, <span class="number">3</span>),</span><br><span class="line">    classes=<span class="number">100</span>,)</span><br><span class="line"></span><br><span class="line">loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=<span class="literal">False</span>)</span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">"adam"</span>, loss=loss_fn, metrics=[<span class="string">"accuracy"</span>])</span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>, batch_size=<span class="number">64</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p style="text-indent: 2em">
+    跑了5个epoch，每个epoch差不多1分钟左右的样子。我们deactivate一下当前的环境，用只有CPU的环境跑，一个epoch差不多要380s，是开GPU的六倍多。下午刚去入了一个3060Ti，明天看看M1和CUDA环境下的3000块钱左右的卡PK能获得什么成绩吧。
+</p>
         </div>
 
         
