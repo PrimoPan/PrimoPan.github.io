@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="Keep Team">
+    <meta name="author" content="Primo Pan">
     
     <title>
         
             友链 |
         
-        Keep Theme
+        Primo Pan&#39;s Blog
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="shortcut icon" href="/images/tx.png">
     
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/tx.png","favicon":"/images/tx.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Primo Pan's Blog"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 5.4.1"><style>mjx-container[jax="SVG"] {
@@ -144,6 +144,8 @@ mjx-container[display="true"] + br {
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
     
 </div>
@@ -162,7 +164,7 @@ mjx-container[display="true"] + br {
         <div class="left">
             
             <a class="logo-title" href="/">
-                Keep Theme
+                Primo Pan&#39;s Blog
             </a>
         </div>
 
@@ -180,16 +182,62 @@ mjx-container[display="true"] + br {
                     
                         <li class="menu-item">
                             <a class=""
-                               href="/archives"
+                               href="/categories"
                             >
-                                归档
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/links"
+                            >
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B"
+                            >
+                                算法竞赛
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF"
+                            >
+                                大前端
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于我
                             </a>
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -208,7 +256,32 @@ mjx-container[display="true"] + br {
             
                 <li class="drawer-menu-item flex-center">
                     <a class=""
-                       href="/archives">归档</a>
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B">算法竞赛</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF">大前端</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于我</a>
                 </li>
             
         </ul>
@@ -230,9 +303,245 @@ mjx-container[display="true"] + br {
     <div class="page-template-container">
         
         
+            <div class="friends-link-container">
+    <ul class="friends-link-list">
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://preminstrel.github.io/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.6hhvz6spijc0.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">preminstrel</div>
+                            <div class="description ellipsis">From SEU</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://carelessty.github.io/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.4frzke5nzvu0.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">听愚</div>
+                            <div class="description ellipsis">From HHU</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://sgdbs.github.io/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.1vkrl81o59pc.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">水蓝</div>
+                            <div class="description ellipsis">From CUC</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://wangnianyi2001.github.io/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.4qrin5edjzs0.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">王小屁</div>
+                            <div class="description ellipsis">屁哥From CUC Anima</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/adaxyy/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.2ck4no9s3474.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">Adaxyy</div>
+                            <div class="description ellipsis">From SJTU</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://huangxuan.me/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.qu8rkmhdaz4.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">黄玄</div>
+                            <div class="description ellipsis">师哥From Meta - React</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://perhacept.github.io/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.5f0zpostjk00.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">perhacept</div>
+                            <div class="description ellipsis">萌姐yyds From CUC Anima</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="http://blog.ciaochaos.com/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.35vgsojjudm0.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">ciaochaos</div>
+                            <div class="description ellipsis">nh师哥🐮 From CUC Anima</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://miyanaga.tech/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.1gwepggamtxc.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">Ferrocene</div>
+                            <div class="description ellipsis">红姐 From PKU CCME</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://raspii.tech">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.1fw697shjc68.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">无用挂件</div>
+                            <div class="description ellipsis">挂件大佬</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://www.dbhz.tech/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.4arzui6maxe0.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">dbHZ</div>
+                            <div class="description ellipsis">HZ霸霸 From THU</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://baicloud.github.io/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/PrimoPan/image-hosting@master/img/image.6c7up63u2c80.webp"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">BY_Cloud</div>
+                            <div class="description ellipsis">☁️师妹</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="clear"></div>
+</div>
+
+        
         <div class="page-template-content markdown-body">
             
-                <h1>links</h1>
+                
             
         </div>
         <div class="page-template-comments">
@@ -256,7 +565,7 @@ mjx-container[display="true"] + br {
               <span>2020</span>
               -
             
-            2024&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+            2024&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Primo Pan</a>
         </div>
         
         <div class="theme-info info-item">
@@ -295,10 +604,6 @@ mjx-container[display="true"] + br {
         
 
         
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
             <i class="fas fa-arrow-down"></i>
@@ -309,6 +614,11 @@ mjx-container[display="true"] + br {
         <li class="tools-item tool-toggle-show flex-center">
             <i class="fas fa-cog fa-spin"></i>
         </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
         
     </ul>
 </div>
@@ -321,6 +631,35 @@ mjx-container[display="true"] + br {
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -341,6 +680,14 @@ mjx-container[display="true"] + br {
 
 
 
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
 
 
 
