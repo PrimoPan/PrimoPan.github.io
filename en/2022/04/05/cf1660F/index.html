@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Primo Pan">
+    
+    <title>
+        
+            Codeforces 1660F Promising String (hard version) 找规律+前缀和 |
+        
+        Primo Pan&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/en/css/style.css">
+
+    <link rel="shortcut icon" href="/en/images/tx.png">
+    
+<link rel="stylesheet" href="/en/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/en/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/tx.png","favicon":"/images/tx.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Primo Pan's Blog"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/en/">
+                Primo Pan&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/"
+                            >
+                                Homepage
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/categories/algorithm-contest/"
+                            >
+                                Algorithm Contest
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/categories/tech-blog/"
+                            >
+                                Tech Blog
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/categories/research-projects/"
+                            >
+                                Research Projects
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/about/"
+                            >
+                                About
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/links/"
+                            >
+                                Friends Link
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                    <li class="menu-item lang-switch">
+                        <a class="lang-switch-link" href="/2022/04/05/cf1660F/">中文</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/">Homepage</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/categories/algorithm-contest/">Algorithm Contest</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/categories/tech-blog/">Tech Blog</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/categories/research-projects/">Research Projects</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/about/">About</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/links/">Friends Link</a>
+                </li>
+            
+            <li class="drawer-menu-item lang-switch flex-center">
+                <a class="lang-switch-link" href="/2022/04/05/cf1660F/">中文</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Codeforces 1660F Promising String (hard version) 找规律+前缀和</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/en/images/tx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Primo Pan</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-05 21:10:40</span>
+        <span class="mobile">2022-04-05 21:10</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/en/categories/algorithm-contest/">algorithm contest</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/en/tags/Codeforces/">Codeforces</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/en/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/en/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/en/tags/%E6%89%BE%E8%A7%84%E5%BE%8B/">找规律</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3>
+    题面
+</h3>
+
+<p>
+F2. Promising String (hard version)
+time limit per test2 seconds
+memory limit per test256 megabytes
+inputstandard input
+outputstandard output
+This is the hard version of Problem F. The only difference between the easy version and the hard version is the constraints.
+
+</p><p>We will call a non-empty string balanced if it contains the same number of plus and minus signs. For example: strings “+–+” and “++-+–” are balanced, and strings “+–”, “–” and “” are not balanced.</p>
+<p>We will call a string promising if the string can be made balanced by several (possibly zero) uses of the following operation:</p>
+<p>replace two adjacent minus signs with one plus sign.<br>In particular, every balanced string is promising. However, the converse is not true: not every promising string is balanced.</p>
+<p>For example, the string “-+—“ is promising, because you can replace two adjacent minuses with plus and get a balanced string “-++-“, or get another balanced string “-+-+”.</p>
+<p>How many non-empty substrings of the given string 𝑠 are promising? Each non-empty promising substring must be counted in the answer as many times as it occurs in string 𝑠.</p>
+<p>Recall that a substring is a sequence of consecutive characters of the string. For example, for string “+-+” its substring are: “+-“, “-+”, “+”, “+-+” (the string is a substring of itself) and some others. But the following strings are not its substring: “–”, “++”, “-++”.</p>
+<p>Input<br>The first line of the input contains an integer 𝑡 (1≤𝑡≤104) —the number of test cases in the test.</p>
+<p>Then the descriptions of test cases follow.</p>
+<p>Each test case of input data consists of two lines. The first line consists of the number 𝑛 (1≤𝑛≤2⋅105): the length of 𝑠.</p>
+<p>The second line of the test case contains the string 𝑠 of length 𝑛, consisting only of characters “+” and “-“.</p>
+<p>It is guaranteed that the sum of values 𝑛 over all test cases does not exceed 2⋅105.</p>
+<p>Output<br>For each test case, print a single number: the number of the promising non-empty substrings of string 𝑠. Each non-empty promising substring must be counted in the answer as many times as it occurs in string 𝑠.</p>
+<p>Example<br>inputCopy<br>5<br>3<br>+-+<br>5<br>-+—<br>4</p>
+<hr>
+<p>7<br>–+—+<br>6<br>+++—<br>outputCopy<br>2<br>4<br>2<br>7<br>4<br>Note<br>The following are the promising substrings for the first three test cases in the example:</p>
+<p>𝑠[1…2]=”+-“, 𝑠[2…3]=”-+”;<br>𝑠[1…2]=”-+”, 𝑠[2…3]=”+-“, 𝑠[1…5]=”-+—“, 𝑠[3…5]=”—“;<br>𝑠[1…3]=”—“, 𝑠[2…4]=”—“.</p>
+<p></p>
+
+<h3>
+    题目大意
+</h3>
+<p style="text-indent: 2em">
+    给你一个长度为n，只包含+-符号的字符串。连续两个-可以合并成一个+。问你该字符串中有多少子串满足，经过一些合并（或没有合并）后子串中+-号数量相等。
+</p>
+
+<h3>
+    题解
+</h3>
+
+<p style="text-indent: 2em">
+    <strong>
+        上结论：
+    </strong>
+    子串中-的个数比+多，且差值是3的倍数，则记一次贡献。
+</p>
+
+<p style="text-indent: 2em">
+    首先根据狄利克雷原理（抽屉原理），如果-的个数比+多于2个即一定有两个-相连。并且进行一次操作后，+-号的差异度会+3。那么就可以进行很多次操作将差异度变为0。
+</p>
+
+<p style="text-indent: 2em">
+    这题有小数据，那么对于小数据，O(n^2)的暴力为（假设一开始差异度为n）。
+</p>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cur=n;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">{</span><br><span class="line">    cur+=(s[i]==<span class="string">'+'</span>)?<span class="number">1</span>:<span class="number">-1</span>;</span><br><span class="line">    dp[i]=cur;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;i;j++)</span><br><span class="line">        <span class="keyword">if</span> (s[j]&gt;s[i] &amp;&amp; (s[j]-s[i])%<span class="number">3</span>==<span class="number">0</span>)</span><br><span class="line">            ans++;<span class="comment">//[j,i]为合理区间</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p style="text-indent: 2em">
+    考虑优化这个<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewbox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/></g></g></g></svg></mjx-container>的暴力，如果把cur模3 ，那么当前右端点的贡献就是左侧所有比它大的%3剩余系的值。看到很多人写了一个log级的数据结构，但观察到差异度最大值为2n-1，不是很大，所以直接可以开个表记录一下，O(n)查询。
+</p>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	string s;</span><br><span class="line">	cin&gt;&gt;s;</span><br><span class="line">	<span class="type">int</span> lim=<span class="number">2</span>*n+<span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> lst=n;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">f</span> <span class="params">(<span class="number">3</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">cnt</span> <span class="params">(lim,<span class="number">0</span>)</span></span>;</span><br><span class="line">	f[lst%<span class="number">3</span>]++;</span><br><span class="line">	cnt[lst]++;</span><br><span class="line">	ll ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="type">int</span> cur=lst;</span><br><span class="line">		<span class="keyword">if</span> (s[i]==<span class="string">'+'</span>)</span><br><span class="line">		{</span><br><span class="line">			f[cur%<span class="number">3</span>]-=cnt[cur];<span class="comment">//比cur小的不能用了</span></span><br><span class="line">			cur++;</span><br><span class="line">			ans+=f[cur%<span class="number">3</span>];</span><br><span class="line">			f[cur%<span class="number">3</span>]++;</span><br><span class="line">			cnt[cur]++;</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">else</span>{</span><br><span class="line">			cur--;</span><br><span class="line">			f[cur%<span class="number">3</span>]+=cnt[cur];<span class="comment">//小于等于cur的都能用</span></span><br><span class="line">			ans+=f[cur%<span class="number">3</span>];</span><br><span class="line">			f[cur%<span class="number">3</span>]++;</span><br><span class="line">			cnt[cur]++;</span><br><span class="line">		}</span><br><span class="line">		lst=cur;</span><br><span class="line">	}</span><br><span class="line">	cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/en/tags/Codeforces/">#Codeforces</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/en/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">#前缀和</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/en/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">#字符串</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/en/tags/%E6%89%BE%E8%A7%84%E5%BE%8B/">#找规律</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/en/2022/04/22/icpc2022Kunming/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ICPC2022昆明站补题</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/en/2022/04/03/react2/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">React学习笔记(2) Hooks</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Primo Pan</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/en/js/utils.js"></script>
+
+<script src="/en/js/main.js"></script>
+
+<script src="/en/js/header-shrink.js"></script>
+
+<script src="/en/js/back2top.js"></script>
+
+<script src="/en/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/en/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/en/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

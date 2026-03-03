@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Primo Pan">
+    
+    <title>
+        
+            UCUG1505(L01) Assignment 1 |
+        
+        Primo Pan&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/en/css/style.css">
+
+    <link rel="shortcut icon" href="/en/images/tx.png">
+    
+<link rel="stylesheet" href="/en/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/en/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/tx.png","favicon":"/images/tx.png","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Welcome to Primo Pan's Blog"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/en/">
+                Primo Pan&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/"
+                            >
+                                Homepage
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/categories/algorithm-contest/"
+                            >
+                                Algorithm Contest
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/categories/tech-blog/"
+                            >
+                                Tech Blog
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/categories/research-projects/"
+                            >
+                                Research Projects
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/about/"
+                            >
+                                About
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/en/links/"
+                            >
+                                Friends Link
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                    <li class="menu-item lang-switch">
+                        <a class="lang-switch-link" href="/2025/02/10/page/">中文</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/">Homepage</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/categories/algorithm-contest/">Algorithm Contest</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/categories/tech-blog/">Tech Blog</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/categories/research-projects/">Research Projects</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/about/">About</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/en/links/">Friends Link</a>
+                </li>
+            
+            <li class="drawer-menu-item lang-switch flex-center">
+                <a class="lang-switch-link" href="/2025/02/10/page/">中文</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">UCUG1505(L01) Assignment 1</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/en/images/tx.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Primo Pan</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2025-02-10 14:25:35</span>
+        <span class="mobile">2025-02-10 14:25</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/en/categories/tech-blog/">tech blog</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/en/tags/TA-Processing/">TA, Processing</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="UCUG1505-L01-Assignment-1"><a href="#UCUG1505-L01-Assignment-1" class="headerlink" title="UCUG1505(L01) Assignment 1"></a>UCUG1505(L01) Assignment 1</h2><p>Sample code written by Dongyijie Primo PAN.(TA)</p>
+<h3 id="Puzzle-1"><a href="#Puzzle-1" class="headerlink" title="Puzzle 1"></a>Puzzle 1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dongyijie Primo PAN</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setup</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">createCanvas</span>(<span class="number">600</span>, <span class="number">600</span>);</span><br><span class="line">  <span class="title function_">background</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">strokeWeight</span>(<span class="number">10</span>); </span><br><span class="line">  <span class="title function_">fill</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="title function_">rect</span>(<span class="number">10</span>, <span class="number">10</span>, <span class="number">180</span>, <span class="number">300</span>); </span><br><span class="line"></span><br><span class="line">  <span class="title function_">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="title function_">rect</span>(<span class="number">190</span>, <span class="number">10</span>, <span class="number">400</span>, <span class="number">470</span>);  </span><br><span class="line"></span><br><span class="line">  <span class="title function_">fill</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);       </span><br><span class="line">  <span class="title function_">rect</span>(<span class="number">10</span>, <span class="number">310</span>, <span class="number">180</span>, <span class="number">170</span>);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">fill</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>);</span><br><span class="line">  <span class="title function_">rect</span>(<span class="number">10</span>, <span class="number">480</span>, <span class="number">180</span>, <span class="number">110</span>);      </span><br><span class="line">  <span class="title function_">fill</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);                           </span><br><span class="line">  <span class="title function_">rect</span>(<span class="number">190</span>, <span class="number">480</span>, <span class="number">290</span>, <span class="number">110</span> );   </span><br><span class="line">  </span><br><span class="line">  <span class="title function_">fill</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>)</span><br><span class="line">  <span class="title function_">rect</span>(<span class="number">480</span>,<span class="number">480</span>,<span class="number">110</span>,<span class="number">110</span>)</span><br><span class="line"></span><br><span class="line"> }</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Puzzle-2"><a href="#Puzzle-2" class="headerlink" title="Puzzle 2"></a>Puzzle 2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dongyijie Primo PAN</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setup</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">createCanvas</span>(<span class="number">320</span>, <span class="number">320</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span>; x &lt; width; x = x + <span class="number">40</span>) {</span><br><span class="line">    a = a * -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> y = <span class="number">0</span>; y &lt; height; y = y + <span class="number">40</span>) {</span><br><span class="line">      a = a * -<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (a &lt; <span class="number">0</span>) {</span><br><span class="line">        c = <span class="number">0</span>;</span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">if</span> (a &gt; <span class="number">0</span>) {</span><br><span class="line">        c = <span class="number">255</span>;</span><br><span class="line">      }</span><br><span class="line">      <span class="title function_">fill</span>(c);</span><br><span class="line">      <span class="title function_">rect</span>(x, y, <span class="number">80</span>, <span class="number">80</span>);</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<h3 id="Puzzle-3"><a href="#Puzzle-3" class="headerlink" title="Puzzle 3"></a>Puzzle 3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">setup</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">createCanvas</span>(<span class="number">800</span>, <span class="number">800</span>);</span><br><span class="line">  <span class="title function_">rectMode</span>(<span class="variable constant_">CENTER</span>);</span><br><span class="line">  <span class="title function_">noLoop</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">background</span>(<span class="number">220</span>);</span><br><span class="line">  <span class="title function_">translate</span>(<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++){</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++){</span><br><span class="line">      <span class="title function_">push</span>();</span><br><span class="line">      <span class="title function_">translate</span>(j * <span class="number">40</span>, i * <span class="number">40</span>);</span><br><span class="line">      <span class="keyword">if</span> (<span class="title function_">random</span>() &lt; <span class="number">.15</span>){</span><br><span class="line">         <span class="title function_">fill</span>(<span class="number">0</span>); <span class="comment">//black</span></span><br><span class="line">         <span class="title function_">rect</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">      }<span class="keyword">else</span>{</span><br><span class="line">         <span class="title function_">fill</span>(<span class="number">255</span>); <span class="comment">// white</span></span><br><span class="line">         <span class="title function_">rect</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">30</span>,<span class="number">30</span>);</span><br><span class="line">      }</span><br><span class="line">      <span class="title function_">pop</span>();</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Puzzle-4"><a href="#Puzzle-4" class="headerlink" title="Puzzle 4"></a>Puzzle 4</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dongyijie Primo PAN</span></span><br><span class="line"><span class="comment">// 定义 Point2D 类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point2D</span> {</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">x, y</span>) {</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> xPositions = []; <span class="comment">// 存储X坐标的1D数组</span></span><br><span class="line"><span class="keyword">let</span> yPositions = []; <span class="comment">// 存储Y坐标的1D数组</span></span><br><span class="line"><span class="keyword">let</span> positions2D = []; <span class="comment">// 存储2D坐标的二维数组</span></span><br><span class="line"><span class="keyword">let</span> points = []; <span class="comment">// 存储Point2D对象的数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setup</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">createCanvas</span>(<span class="number">800</span>, <span class="number">800</span>);</span><br><span class="line">  <span class="title function_">noFill</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">background</span>(<span class="number">220</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 获取当前鼠标位置</span></span><br><span class="line">  <span class="keyword">let</span> x = mouseX;</span><br><span class="line">  <span class="keyword">let</span> y = mouseY;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 更新1D数组</span></span><br><span class="line">  <span class="keyword">if</span> (xPositions.<span class="property">length</span> &gt;= <span class="number">100</span>) {</span><br><span class="line">    xPositions.<span class="title function_">shift</span>(); <span class="comment">// 删除第一个元素</span></span><br><span class="line">    yPositions.<span class="title function_">shift</span>();</span><br><span class="line">  }</span><br><span class="line">  xPositions.<span class="title function_">push</span>(x);</span><br><span class="line">  yPositions.<span class="title function_">push</span>(y);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 更新2D数组</span></span><br><span class="line">  <span class="keyword">if</span> (positions2D.<span class="property">length</span> &gt;= <span class="number">100</span>) {</span><br><span class="line">    positions2D.<span class="title function_">shift</span>();</span><br><span class="line">  }</span><br><span class="line">  positions2D.<span class="title function_">push</span>([x, y]);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更新Point2D对象数组</span></span><br><span class="line">  <span class="keyword">if</span> (points.<span class="property">length</span> &gt;= <span class="number">100</span>) {</span><br><span class="line">    points.<span class="title function_">shift</span>();</span><br><span class="line">  }</span><br><span class="line">  points.<span class="title function_">push</span>(<span class="keyword">new</span> <span class="title class_">Point2D</span>(x, y));</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 绘制1D数组的线条</span></span><br><span class="line">  <span class="title function_">stroke</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>); <span class="comment">// 红色</span></span><br><span class="line">  <span class="title function_">beginShape</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; xPositions.<span class="property">length</span>; i++) {</span><br><span class="line">    <span class="title function_">vertex</span>(xPositions[i], yPositions[i]);</span><br><span class="line">  }</span><br><span class="line">  <span class="title function_">endShape</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 绘制2D数组的线条</span></span><br><span class="line">  <span class="title function_">stroke</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>); <span class="comment">// 绿色</span></span><br><span class="line">  <span class="title function_">beginShape</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; positions2D.<span class="property">length</span>; i++) {</span><br><span class="line">    <span class="title function_">vertex</span>(positions2D[i][<span class="number">0</span>], positions2D[i][<span class="number">1</span>]);</span><br><span class="line">  }</span><br><span class="line">  <span class="title function_">endShape</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 绘制Point2D对象数组的线条</span></span><br><span class="line">  <span class="title function_">stroke</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>); <span class="comment">// 蓝色</span></span><br><span class="line">  <span class="title function_">beginShape</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; points.<span class="property">length</span>; i++) {</span><br><span class="line">    <span class="title function_">vertex</span>(points[i].<span class="property">x</span>, points[i].<span class="property">y</span>);</span><br><span class="line">  }</span><br><span class="line">  <span class="title function_">endShape</span>();</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Puzzle-5"><a href="#Puzzle-5" class="headerlink" title="Puzzle 5"></a>Puzzle 5</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义 Point2D 类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point2D</span> {</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">x, y</span>) {</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y;</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> xPositions = []; <span class="comment">// 存储X坐标的1D数组</span></span><br><span class="line"><span class="keyword">let</span> yPositions = []; <span class="comment">// 存储Y坐标的1D数组</span></span><br><span class="line"><span class="keyword">let</span> positions2D = []; <span class="comment">// 存储2D坐标的二维数组</span></span><br><span class="line"><span class="keyword">let</span> points = []; <span class="comment">// 存储Point2D对象的数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">setup</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">createCanvas</span>(<span class="number">800</span>, <span class="number">800</span>);</span><br><span class="line">  <span class="title function_">noFill</span>();</span><br><span class="line">  <span class="title function_">textSize</span>(<span class="number">16</span>); <span class="comment">// 设置显示坐标时的文本大小</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) {</span><br><span class="line">  <span class="title function_">background</span>(<span class="number">220</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 获取当前鼠标位置</span></span><br><span class="line">  <span class="keyword">let</span> x = mouseX;</span><br><span class="line">  <span class="keyword">let</span> y = mouseY;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 更新1D数组</span></span><br><span class="line">  <span class="keyword">if</span> (xPositions.<span class="property">length</span> &gt;= <span class="number">100</span>) {</span><br><span class="line">    xPositions.<span class="title function_">shift</span>(); <span class="comment">// 删除第一个元素</span></span><br><span class="line">    yPositions.<span class="title function_">shift</span>();</span><br><span class="line">  }</span><br><span class="line">  xPositions.<span class="title function_">push</span>(x);</span><br><span class="line">  yPositions.<span class="title function_">push</span>(y);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 更新2D数组</span></span><br><span class="line">  <span class="keyword">if</span> (positions2D.<span class="property">length</span> &gt;= <span class="number">100</span>) {</span><br><span class="line">    positions2D.<span class="title function_">shift</span>();</span><br><span class="line">  }</span><br><span class="line">  positions2D.<span class="title function_">push</span>([x, y]);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 更新Point2D对象数组</span></span><br><span class="line">  <span class="keyword">if</span> (points.<span class="property">length</span> &gt;= <span class="number">100</span>) {</span><br><span class="line">    points.<span class="title function_">shift</span>();</span><br><span class="line">  }</span><br><span class="line">  points.<span class="title function_">push</span>(<span class="keyword">new</span> <span class="title class_">Point2D</span>(x, y));</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 绘制五角星</span></span><br><span class="line">  <span class="title function_">stroke</span>(<span class="number">255</span>, <span class="number">215</span>, <span class="number">0</span>); <span class="comment">// 金色</span></span><br><span class="line">  <span class="title function_">strokeWeight</span>(<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; points.<span class="property">length</span>; i++) {</span><br><span class="line">    <span class="title function_">drawStar</span>(points[i].<span class="property">x</span>, points[i].<span class="property">y</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">5</span>); <span class="comment">// 绘制五角星</span></span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 显示当前鼠标坐标</span></span><br><span class="line">  <span class="title function_">fill</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="title function_">text</span>(<span class="string">`X: <span class="subst">${x}</span>, Y: <span class="subst">${y}</span>`</span>, <span class="number">10</span>, height - <span class="number">10</span>); <span class="comment">// 左下角显示坐标</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绘制五角星的函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">drawStar</span>(<span class="params">x, y, radius1, radius2, npoints</span>) {</span><br><span class="line">  <span class="keyword">let</span> angle = <span class="variable constant_">TWO_PI</span> / npoints;</span><br><span class="line">  <span class="keyword">let</span> halfAngle = angle / <span class="number">2.0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="title function_">beginShape</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> a = -<span class="variable constant_">PI</span>/<span class="number">2</span>; a &lt; <span class="variable constant_">TWO_PI</span>; a += angle) {</span><br><span class="line">    <span class="keyword">let</span> sx = x + <span class="title function_">cos</span>(a) * radius2;</span><br><span class="line">    <span class="keyword">let</span> sy = y + <span class="title function_">sin</span>(a) * radius2;</span><br><span class="line">    <span class="title function_">vertex</span>(sx, sy);</span><br><span class="line">    sx = x + <span class="title function_">cos</span>(a + halfAngle) * radius1;</span><br><span class="line">    sy = y + <span class="title function_">sin</span>(a + halfAngle) * radius1;</span><br><span class="line">    <span class="title function_">vertex</span>(sx, sy);</span><br><span class="line">  }</span><br><span class="line">  <span class="title function_">endShape</span>(<span class="variable constant_">CLOSE</span>);</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/en/tags/TA-Processing/">#TA, Processing</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/en/2026/03/03/research-projects-kickoff/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Research Project Log Kickoff</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/en/2023/09/07/HarmonyHeaven%E5%89%8D%E6%9C%9F%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">HarmonyHeaven前期论文阅读</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2026&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Primo Pan</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/en/js/utils.js"></script>
+
+<script src="/en/js/main.js"></script>
+
+<script src="/en/js/header-shrink.js"></script>
+
+<script src="/en/js/back2top.js"></script>
+
+<script src="/en/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/en/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/en/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>
