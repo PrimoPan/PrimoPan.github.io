@@ -1566,7 +1566,7 @@ pre .javascript .function {
   position: relative;
   height: 100%;
   width: 92%;
-  max-width: 1480px;
+  max-width: 1700px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1575,7 +1575,7 @@ pre .javascript .function {
   z-index: 1005;
 }
 .header-wrapper .header-content.has-first-screen {
-  max-width: 1480px;
+  max-width: 1700px;
 }
 @media (max-width: 780px) {
   .header-wrapper .header-content {
