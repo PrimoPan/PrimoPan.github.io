@@ -28,7 +28,7 @@ mathjax:
   every_page: true
 deploy:
   type: git
-  repository: git@github.com:PrimoPan/PrimoPan.github.io.git
+  repository: ssh://git@ssh.github.com:443/PrimoPan/PrimoPan.github.io.git
   branch: main
 skip_render:
   - about/assets/**
